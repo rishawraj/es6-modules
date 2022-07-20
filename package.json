@@ -4,7 +4,9 @@
   "description": "restaurant web page",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch"
   },
   "author": "rishawraj",
   "license": "ISC",
