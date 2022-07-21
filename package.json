@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --progress --mode=production",
-    "watch": "webpack --progress --watch"
+    "watch": "webpack --progress --watch --mode=production"
   },
   "author": "rishawraj",
   "license": "ISC",

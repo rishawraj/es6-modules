@@ -16,23 +16,28 @@ function createHeader() {
   const home = document.createElement("div");
   home.classList.add("home");
   home.textContent = "home";
-  //
-  home.addEventListener("click", () => {
+
+  home.addEventListener("click", (e) => {
+    if (e.target.classList.contains("active")) return;
+    setActive(e.target);
     hometext();
   });
-  //
 
   const menu = document.createElement("div");
   menu.classList.add("menu");
   menu.textContent = "menu";
-  menu.addEventListener("click", () => {
+  menu.addEventListener("click", (e) => {
+    if (e.target.classList.contains("active")) return;
+    setActive(e.target);
     menutext();
   });
 
   const contact = document.createElement("div");
   contact.classList.add("contact");
   contact.textContent = "contact";
-  contact.addEventListener("click", () => {
+  contact.addEventListener("click", (e) => {
+    if (e.target.classList.contains("active")) return;
+    setActive(e.target);
     contacttext();
   });
 
@@ -49,7 +54,6 @@ function createHeader() {
 function createMain() {
   const main = document.createElement("div");
   main.classList.add("main");
-  main.textContent = "this is home!";
   return main;
 }
 
@@ -60,6 +64,17 @@ function createFooter() {
   return footer;
 }
 
+function setActive(item) {
+  // menu home conatact remove active all
+  let x = item.parentElement.childNodes;
+  console.log(x);
+  x.forEach((element) => {
+    element.classList.remove("active");
+  });
+
+  item.classList.add("active");
+}
+
 function loadPage() {
   const content = document.getElementById("content");
   content.appendChild(createHeader());
@@ -68,3 +83,5 @@ function loadPage() {
 }
 
 loadPage();
+hometext();
+// setActive();
